@@ -1,0 +1,986 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-d5d4bdd8.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-a9fde460.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo-8662c81e.png" class="logo" alt="" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduccion" class="toc-h1 toc-link" data-title="Introduccion">Introduccion</a>
+          </li>
+          <li>
+            <a href="#recepciones" class="toc-h1 toc-link" data-title="Recepciones">Recepciones</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#confirmar-recepcion" class="toc-h2 toc-link" data-title="Confirmar Recepcion">Confirmar Recepcion</a>
+                  </li>
+                  <li>
+                    <a href="#consultar-documento-electronico" class="toc-h2 toc-link" data-title="Consultar Documento Electronico">Consultar Documento Electronico</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#produccion" class="toc-h1 toc-link" data-title="Produccion">Produccion</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#confirmar-produccion-pt" class="toc-h2 toc-link" data-title="Confirmar Produccion PT">Confirmar Produccion PT</a>
+                  </li>
+                  <li>
+                    <a href="#confirmar-consumo-insumos" class="toc-h2 toc-link" data-title="Confirmar Consumo Insumos">Confirmar Consumo Insumos</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduccion'>Introduccion</h1>
+<p>Documentacion de las APIs construidas por Tabernero para interactuar con su ERP. <br><br>
+<b>Version: 1.2</b><br>
+<b>Ultima actualizacion:  </b>
+2021-08-26 13:35:43 -0500</p>
+<h1 id='recepciones'>Recepciones</h1><h2 id='confirmar-recepcion'>Confirmar Recepcion</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> POST <span class="s2">"http://IP_ADDRESS:PORT/cubico/recepcion/confirmacion"</span> <span class="se">\</span>
+     <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span>
+</code></pre></div>
+<blockquote>
+<p>Ejemplo del json a enviar:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"numOrden"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N00001"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fechaOrden"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-15"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"codigoAlmacen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fechaHoraIngresoOrden"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-23T14:20:05"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fechaHoraTransaccionOrden"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-23T16:25:43"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"codigoProveedor"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"codigoCliente"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90049167"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tipoMovimiento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"03"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tipoDocumento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"numDocumento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F002-00000046"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"motivoDevolucion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"responsableDevolucion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tipoIncidenciaDevolucion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"304"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"idCuenta"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"usuario"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reciboDetalle"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"item"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"codigoArticulo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9010006178"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"codigoUM"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CAJA6"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"loteProveedor"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fechaVencimiento"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"anyoCosecha"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"cantidadPedida"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"cantidadRecibida"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"codigoSubAlmacen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tipoIncidenciaItem"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"item"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"codigoArticulo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9010006148"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"codigoUM"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CAJA12"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"loteProveedor"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fechaVencimiento"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"anyoCosecha"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"cantidadPedida"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"cantidadRecibida"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"codigoSubAlmacen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tipoIncidenciaItem"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Ejemplo de respuesta del endpoint:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"La Operacion se realizó satisfactoriamente"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Este endpoint registra (confirma) una recepcion.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST http://IP_ADDRESS:PORT/cubico/recepcion/confirmacion</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parametro</th>
+<th>Tipo</th>
+<th>Tamaño</th>
+<th>Requerido</th>
+<th>Descripcion</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>numOrden</td>
+<td>string</td>
+<td>8</td>
+<td>X</td>
+<td>Numero de la orden de recepcion</td>
+</tr>
+<tr>
+<td>fechaOrden</td>
+<td>string</td>
+<td>10</td>
+<td>X</td>
+<td>Fecha de la orden de recepcion</td>
+</tr>
+<tr>
+<td>codigoAlmacen</td>
+<td>string</td>
+<td>2</td>
+<td>X</td>
+<td>Codigo de almacen</td>
+</tr>
+<tr>
+<td>fechaHoraIngresoOrden</td>
+<td>string</td>
+<td>19</td>
+<td>X</td>
+<td>Fecha y hora de ingreso de la mercaderia</td>
+</tr>
+<tr>
+<td>fechaHoraTransaccionOrden</td>
+<td>string</td>
+<td>19</td>
+<td>X</td>
+<td>Fecha y hora de ingreso de la orden al sistema</td>
+</tr>
+<tr>
+<td>codigoProveedor (**)</td>
+<td>string</td>
+<td>20</td>
+<td></td>
+<td>Codigo del proveedor</td>
+</tr>
+<tr>
+<td>codigoCliente (*)</td>
+<td>string</td>
+<td>20</td>
+<td></td>
+<td>Codigo del cliente</td>
+</tr>
+<tr>
+<td>tipoMovimiento</td>
+<td>string</td>
+<td>2</td>
+<td>X</td>
+<td>Tipo de movimiento: (01) Ingreso importacion, (02) Ingreso compra nacional, (03) Devolucion</td>
+</tr>
+<tr>
+<td>tipoDocumento (*)</td>
+<td>string</td>
+<td>2</td>
+<td></td>
+<td>Tipo documento: 01 Factura, etc</td>
+</tr>
+<tr>
+<td>numDocumento (*)</td>
+<td>string</td>
+<td>15</td>
+<td></td>
+<td>Numero de documento: F002-00000046</td>
+</tr>
+<tr>
+<td>motivoDevolucion (*)</td>
+<td>string</td>
+<td>2</td>
+<td></td>
+<td>Codigo de motivo de devolucion</td>
+</tr>
+<tr>
+<td>responsableDevolucion (*)</td>
+<td>string</td>
+<td>3</td>
+<td></td>
+<td>Codigo de responsable de la devolucion</td>
+</tr>
+<tr>
+<td>tipoIncidenciaDevolucion (*)</td>
+<td>string</td>
+<td>3</td>
+<td></td>
+<td>Tipo de incidencia de la devolucion</td>
+</tr>
+<tr>
+<td>idCuenta</td>
+<td>integer</td>
+<td>2</td>
+<td>X</td>
+<td>ID de la cuenta (1: TABERNERO)</td>
+</tr>
+<tr>
+<td>usuario</td>
+<td>string</td>
+<td>10</td>
+<td>X</td>
+<td>Usuario que proceso la recepcion</td>
+</tr>
+<tr>
+<td>reciboDetalle[]</td>
+<td>array</td>
+<td></td>
+<td></td>
+<td>Detalle de la orden de recepcion</td>
+</tr>
+<tr>
+<td>item</td>
+<td>integer</td>
+<td>3</td>
+<td>X</td>
+<td>Nro de secuencia del detalle (1...n)</td>
+</tr>
+<tr>
+<td>codigoArticulo</td>
+<td>string</td>
+<td>20</td>
+<td>X</td>
+<td>Codigo del articulo</td>
+</tr>
+<tr>
+<td>codigoUM</td>
+<td>string</td>
+<td>6</td>
+<td>X</td>
+<td>Unidad de medida</td>
+</tr>
+<tr>
+<td>loteProveedor (**)</td>
+<td>string</td>
+<td>10</td>
+<td></td>
+<td>Lote del proveedor del articulo</td>
+</tr>
+<tr>
+<td>fechaVencimiento (**)</td>
+<td>string</td>
+<td>10</td>
+<td></td>
+<td>Fecha de vencimiento del articulo</td>
+</tr>
+<tr>
+<td>anyoCosecha (**)</td>
+<td>string</td>
+<td>10</td>
+<td></td>
+<td>Año de cosecha del articulo</td>
+</tr>
+<tr>
+<td>cantidadPedida</td>
+<td>number</td>
+<td>15, 2</td>
+<td>X</td>
+<td>Cantidad pedida original</td>
+</tr>
+<tr>
+<td>cantidadRecibida</td>
+<td>number</td>
+<td>15, 2</td>
+<td>X</td>
+<td>Cantidad recibida</td>
+</tr>
+<tr>
+<td>codigoSubAlmacen</td>
+<td>string</td>
+<td>2</td>
+<td>X</td>
+<td>Codigo de subalmacen</td>
+</tr>
+<tr>
+<td>tipoIncidenciaItem</td>
+<td>string</td>
+<td>500</td>
+<td></td>
+<td>Descripcion de la incidencia</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+(*) Parametro obligatorio solo para los ingresos por devoluciones (Tip. Mov.: 03)<br>
+(**) Parametro obligatorio solo para los ingreso de ordenes de compra. (Tip. Mov.: 01, 02) 
+</aside>
+<h2 id='consultar-documento-electronico'>Consultar Documento Electronico</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="s2">"http://IP_ADDRESS:PORT/cubico/documento/consultar?empresa=01&amp;tipoDocumento=01&amp;serieDocumento=FA01&amp;numeroDocumento=0093014"</span>
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de respuesta del endpoint:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"La Operacion se realizó satisfactoriamente"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"empresa"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tipoDocumento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"serieDocumento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FA01"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"numeroDocumento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0093014"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fechaDocumento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-04-13"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"codCliente"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10907217"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"desCliente"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CENCOSUD RETAIL PERU S.A."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tipoDocCliente"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"numDocCliente"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20109072177"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"detalle"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"nroItem"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"codItem"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9010003110"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"desItem"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PISCO TABERNERO ACHOLADO 700ML - EDICION LIMITADA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"umItem"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CAJA6"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cantidad"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"nroItem"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"codItem"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9010004266"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"desItem"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PISCO PREMIUM MOSTO VERDE ACHOLADO 500ML 3CEPAS - TUBULAR"</span><span class="nl">"umItem"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CAJA12"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cantidad"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Este endpoint es para consultar un documento electronico emitido por el Grupo Tabernero</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET http://IP_ADDRESS:PORT/cubico/documento/consultar</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parametro</th>
+<th>Tipo</th>
+<th>Tamaño</th>
+<th>Requerido</th>
+<th>Descripcion</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>empresa</td>
+<td>string</td>
+<td>2</td>
+<td></td>
+<td>01 Tabernero, 02 GWorld, etc</td>
+</tr>
+<tr>
+<td>tipoDocumento</td>
+<td>string</td>
+<td>2</td>
+<td>X</td>
+<td>Tip. Documento SUNAT: 01 Factura, 03 Boleta Venta, 09 Guia Remision, etc</td>
+</tr>
+<tr>
+<td>serieDocumento</td>
+<td>string</td>
+<td>5</td>
+<td>X</td>
+<td>Serie de documento electronico: F002, F001, etc</td>
+</tr>
+<tr>
+<td>numeroDocumento</td>
+<td>string</td>
+<td>20</td>
+<td>X</td>
+<td>Numero de documento electronico</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"">
+Si no se envia "empresa" se asume por defecto 01 TABERNERO
+</aside>
+<h1 id='produccion'>Produccion</h1><h2 id='confirmar-produccion-pt'>Confirmar Produccion PT</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> POST <span class="s2">"http://IP_ADDRESS:PORT/cubico/produccion/confirmacion/pt"</span> <span class="se">\</span>
+     <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span>
+</code></pre></div>
+<blockquote>
+<p>Ejemplo del json a enviar:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"numeroOP"</span><span class="p">:</span><span class="w"> </span><span class="mi">31473</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fechaEntrega"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-24"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"codigoAlmacen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"codigoSubAlmacen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"secuencia"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"codigoProducto"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9010006180"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"unidadMedida"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNI"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"cantidadProducida"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"usuario"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fechaHoraTransaccion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-24T14:20:05"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Ejemplo de respuesta del endpoint:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"La Operacion se realizó satisfactoriamente"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Este endpoint confirma una produccion de PT</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p>`POST http://IP_ADDRESS:PORT/cubico/produccion/confirmacion/pt</p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parametro</th>
+<th>Tipo</th>
+<th>Tamaño</th>
+<th>Requerido</th>
+<th>Descripcion</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>numeroOP</td>
+<td>integer</td>
+<td>10</td>
+<td>X</td>
+<td>Numero de la orden de produccion</td>
+</tr>
+<tr>
+<td>fechaEntrega</td>
+<td>string</td>
+<td>10</td>
+<td>X</td>
+<td>Fecha de la orden de produccion</td>
+</tr>
+<tr>
+<td>codigoAlmacen</td>
+<td>string</td>
+<td>5</td>
+<td>X</td>
+<td>Codigo de almacen</td>
+</tr>
+<tr>
+<td>codigoSubAlmacen</td>
+<td>string</td>
+<td>5</td>
+<td>X</td>
+<td>Codigo de subalmacen</td>
+</tr>
+<tr>
+<td>secuencia</td>
+<td>integer</td>
+<td>3</td>
+<td>X</td>
+<td>Numero de secuencia</td>
+</tr>
+<tr>
+<td>codigoProducto</td>
+<td>string</td>
+<td>20</td>
+<td>X</td>
+<td>Codigo de producto</td>
+</tr>
+<tr>
+<td>unidadMedida</td>
+<td>string</td>
+<td>5</td>
+<td>X</td>
+<td>Unidad de medida</td>
+</tr>
+<tr>
+<td>cantidadProducida</td>
+<td>number</td>
+<td>15,2</td>
+<td>X</td>
+<td>Cantidad producida</td>
+</tr>
+<tr>
+<td>usuario</td>
+<td>string</td>
+<td>8</td>
+<td></td>
+<td>Usuario</td>
+</tr>
+<tr>
+<td>fechaHoraTransaccion</td>
+<td>string</td>
+<td>20</td>
+<td>X</td>
+<td>Fecha y hora de transaccion</td>
+</tr>
+</tbody></table>
+<h2 id='confirmar-consumo-insumos'>Confirmar Consumo Insumos</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> POST <span class="s2">"http://IP_ADDRESS:PORT/cubico/produccion/confirmacion/insumos"</span> <span class="se">\</span>
+     <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span>
+</code></pre></div>
+<blockquote>
+<p>Ejemplo del json a enviar:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"numeroOP"</span><span class="p">:</span><span class="w"> </span><span class="mi">31473</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fechaConsumo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-15"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"codigoAlmacen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"codigoSubAlmacen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"secuencia"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"codigoInsumo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9010000551"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"unidadMedida"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNI"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"cantidadConsumida"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"usuario"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fechaHoraTransaccion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-23T14:20:05"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Ejemplo de respuesta del endpoint:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"La Operacion se realizó satisfactoriamente"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Este endpoint confirma el consumo de insumos total de una Orden de Produccion</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p>`POST http://IP_ADDRESS:PORT/cubico/produccion/confirmacion/insumos</p>
+<h3 id='query-parameters-3'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parametro</th>
+<th>Tipo</th>
+<th>Tamaño</th>
+<th>Requerido</th>
+<th>Descripcion</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>numeroOP</td>
+<td>integer</td>
+<td>10</td>
+<td>X</td>
+<td>Numero de la orden de produccion</td>
+</tr>
+<tr>
+<td>fechaConsumo</td>
+<td>string</td>
+<td>10</td>
+<td>X</td>
+<td>Fecha de la orden de produccion</td>
+</tr>
+<tr>
+<td>codigoAlmacen</td>
+<td>string</td>
+<td>5</td>
+<td>X</td>
+<td>Codigo de almacen</td>
+</tr>
+<tr>
+<td>codigoSubAlmacen</td>
+<td>string</td>
+<td>5</td>
+<td>X</td>
+<td>Codigo de subalmacen</td>
+</tr>
+<tr>
+<td>secuencia</td>
+<td>integer</td>
+<td>3</td>
+<td>X</td>
+<td>Numero de secuencia</td>
+</tr>
+<tr>
+<td>codigoInsumo</td>
+<td>string</td>
+<td>20</td>
+<td>X</td>
+<td>Codigo de producto</td>
+</tr>
+<tr>
+<td>unidadMedida</td>
+<td>string</td>
+<td>5</td>
+<td>X</td>
+<td>Unidad de medida</td>
+</tr>
+<tr>
+<td>cantidadConsumida</td>
+<td>number</td>
+<td>15,2</td>
+<td>X</td>
+<td>Cantidad consumida del insumo</td>
+</tr>
+<tr>
+<td>usuario</td>
+<td>string</td>
+<td>8</td>
+<td></td>
+<td>Usuario</td>
+</tr>
+<tr>
+<td>fechaHoraTransaccion</td>
+<td>string</td>
+<td>20</td>
+<td>X</td>
+<td>Fecha y hora de transaccion</td>
+</tr>
+</tbody></table>
+<h1 id='errors'>Errors</h1>
+<p>The API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request is invalid.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your API key is wrong.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- The resource requested is hidden for administrators only.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified resource could not be found.</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- You tried to access a resource with an invalid method.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone -- The resource requested has been removed from our servers.</td>
+</tr>
+<tr>
+<td>418</td>
+<td>I&#39;m a teapot.</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests -- You&#39;re requesting too many resources! Slow down!</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
