@@ -334,6 +334,14 @@
               </ul>
           </li>
           <li>
+            <a href="#transferencias" class="toc-h1 toc-link" data-title="Transferencias">Transferencias</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#confirmar-transferencia" class="toc-h2 toc-link" data-title="Confirmar transferencia">Confirmar transferencia</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
@@ -348,7 +356,7 @@
 <p>Documentacion de las APIs construidas por Tabernero para interactuar con su ERP. <br><br>
 <b>Version: 1.3</b><br>
 <b>Ultima actualizacion:  </b>
-2021-09-23 16:40:20 -0500</p>
+2021-10-05 23:15:24 -0500</p>
 <h1 id='recepciones'>Recepciones</h1><h2 id='confirmar-recepcion'>Confirmar Recepcion</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> POST <span class="s2">"http://IP_ADDRESS:PORT/cubico/recepcion/confirmacion"</span> <span class="se">\</span>
      <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span>
 </code></pre></div>
@@ -523,7 +531,7 @@
 <tr>
 <td>usuario</td>
 <td>string</td>
-<td>10</td>
+<td>8</td>
 <td>X</td>
 <td>Usuario que proceso la recepcion</td>
 </tr>
@@ -948,6 +956,192 @@ Si no se envia "empresa" se asume por defecto 01 TABERNERO
 <td>Cantidad devuelta del insumo</td>
 </tr>
 </tbody></table>
+<h1 id='transferencias'>Transferencias</h1><h2 id='confirmar-transferencia'>Confirmar transferencia</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> POST <span class="s2">"http://IP_ADDRESS:PORT/cubico/transferencia/confirmacion"</span> <span class="se">\</span>
+     <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span>
+</code></pre></div>
+<blockquote>
+<p>Ejemplo del json a enviar:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"numOrden"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00193695"</span><span class="w">
+    </span><span class="nl">"fechaOrden"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-15"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"idTipoTransferencia"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"codigoAlmacenOrigen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"codigoSubAlmacenOrigen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"codigoAlmacenDestino"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"codigoSubAlmacenDestino"</span><span class="p">:</span><span class="w"> </span><span class="s2">"76"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fechaHoraTransaccionOrden"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-23T16:25:43"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"usuario"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"observacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alguna observacion"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"numeroOp"</span><span class="p">:</span><span class="w"> </span><span class="mi">31473</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"detalleTransferencia"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"item"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"codigoArticulo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9010006178"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"codigoUM"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CAJA6"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"cantidadTransferida"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"estado"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BE"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"lote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A2019"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"item"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"codigoArticulo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9010005078"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"codigoUM"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CAJA6"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"cantidadTransferida"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"estado"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BE"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"lote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A2020"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Ejemplo de respuesta del endpoint:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"La Operacion se realizó satisfactoriamente"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Este endpoint registra (confirma) una recepcion.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>POST http://IP_ADDRESS:PORT/cubico/transferencia/confirmacion</code></p>
+<h3 id='query-parameters-4'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parametro</th>
+<th>Tipo</th>
+<th>Tamaño</th>
+<th>Requerido</th>
+<th>Descripcion</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>numOrden</td>
+<td>string</td>
+<td>8</td>
+<td>X</td>
+<td>Numero de la orden de transferencia</td>
+</tr>
+<tr>
+<td>fechaOrden</td>
+<td>string</td>
+<td>10</td>
+<td>X</td>
+<td>Fecha de la orden de recepcion</td>
+</tr>
+<tr>
+<td>idTipoTransferencia</td>
+<td>integer</td>
+<td>3</td>
+<td>X</td>
+<td>Id de tipo de transferencia</td>
+</tr>
+<tr>
+<td>codigoAlmacenOrigen</td>
+<td>string</td>
+<td>2</td>
+<td>X</td>
+<td>Codigo de almacen origen</td>
+</tr>
+<tr>
+<td>codigoSubAlmacenOrigen</td>
+<td>string</td>
+<td>2</td>
+<td>X</td>
+<td>Codigo de subalmacen origen</td>
+</tr>
+<tr>
+<td>codigoAlmacenDestino</td>
+<td>string</td>
+<td>2</td>
+<td>X</td>
+<td>Codigo de almacen destino</td>
+</tr>
+<tr>
+<td>codigoSubAlmacenDestino</td>
+<td>string</td>
+<td>2</td>
+<td>X</td>
+<td>Codigo de subalmacen destino</td>
+</tr>
+<tr>
+<td>fechaHoraTransaccionOrden</td>
+<td>string</td>
+<td>19</td>
+<td>X</td>
+<td>Fecha y hora de ingreso de la transferencia al sistema</td>
+</tr>
+<tr>
+<td>usuario</td>
+<td>string</td>
+<td>8</td>
+<td>X</td>
+<td>Usuario que proceso la transferencia</td>
+</tr>
+<tr>
+<td>observacion</td>
+<td>string</td>
+<td>250</td>
+<td></td>
+<td>Observacion opcional</td>
+</tr>
+<tr>
+<td>numeroOp (*)</td>
+<td>integer</td>
+<td>10</td>
+<td></td>
+<td>Numero de la OP</td>
+</tr>
+<tr>
+<td>item</td>
+<td>integer</td>
+<td>3</td>
+<td>X</td>
+<td>Nro de secuencia del detalle (1...n)</td>
+</tr>
+<tr>
+<td>codigoArticulo</td>
+<td>string</td>
+<td>20</td>
+<td>X</td>
+<td>Codigo del articulo</td>
+</tr>
+<tr>
+<td>codigoUM</td>
+<td>string</td>
+<td>6</td>
+<td>X</td>
+<td>Unidad de medida</td>
+</tr>
+<tr>
+<td>cantidadTransferida</td>
+<td>number</td>
+<td>15, 2</td>
+<td>X</td>
+<td>Cantidad transferida al almacen destino</td>
+</tr>
+<tr>
+<td>estado (*)</td>
+<td>string</td>
+<td>2</td>
+<td></td>
+<td>Condicion del articulo transferido</td>
+</tr>
+<tr>
+<td>lote</td>
+<td>string</td>
+<td>20</td>
+<td></td>
+<td>Lote proveedor del articulo</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+(*) Solo cuando sea una transferecia de insumos se debe enviar este dato adicional.<br>
+(**) Por defecto el estado es BE (Buen Estado).<br>
+</aside>
 <h1 id='errors'>Errors</h1>
 <p>The API uses the following error codes:</p>
 
