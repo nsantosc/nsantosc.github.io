@@ -342,6 +342,14 @@
               </ul>
           </li>
           <li>
+            <a href="#despachos" class="toc-h1 toc-link" data-title="Despachos">Despachos</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#confirmar-despacho" class="toc-h2 toc-link" data-title="Confirmar despacho">Confirmar despacho</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
@@ -356,7 +364,7 @@
 <p>Documentacion de las APIs construidas por Tabernero para interactuar con su ERP. <br><br>
 <b>Version: 1.3</b><br>
 <b>Ultima actualizacion:  </b>
-2021-10-05 23:15:24 -0500</p>
+2022-05-08 21:05:43 -0500</p>
 <h1 id='recepciones'>Recepciones</h1><h2 id='confirmar-recepcion'>Confirmar Recepcion</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> POST <span class="s2">"http://IP_ADDRESS:PORT/cubico/recepcion/confirmacion"</span> <span class="se">\</span>
      <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span>
 </code></pre></div>
@@ -1141,6 +1149,267 @@ Si no se envia "empresa" se asume por defecto 01 TABERNERO
 <aside class="notice">
 (*) Solo cuando sea una transferecia de insumos se debe enviar este dato adicional.<br>
 (**) Por defecto el estado es BE (Buen Estado).<br>
+</aside>
+<h1 id='despachos'>Despachos</h1><h2 id='confirmar-despacho'>Confirmar despacho</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> POST <span class="s2">"http://IP_ADDRESS:PORT/cubico/despacho/confirmacion"</span> <span class="se">\</span>
+     <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span>
+</code></pre></div>
+<blockquote>
+<p>Ejemplo del json a enviar:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"numAtencion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"041956"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tipoPicking"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"detalle"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"numPedido"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PE00161036"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"guiaInterna"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00639459"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fechaOrden"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-05-03"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fechaEntrega"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-05-04T15:30:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"codigoAlmacen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"codigoSubAlmacen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"codigoERPCliente"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90049320"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"descripcionCliente"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NESSUS HOTELES PERU SA"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"codigoERPDireccion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"direccionEntrega"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AV LA PAZ NRO 463 - MIRAFLORES"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tipoVenta"</span><span class="p">:</span><span class="w"> </span><span class="s2">"recojo en almacén"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"rucTransporte"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20505670443"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"placaTransporte"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BSZ-355"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"conductor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000002"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"observacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tipoPedido"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"usuario"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nsantos"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"detalle"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"item"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"codigoArticulo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010000004"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"codigoUM"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNI"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"loteProveedor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"l1"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"cantidadPedida"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"cantidadDespachada"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"item"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"codigoArticulo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010000008"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"codigoUM"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNI"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"loteProveedor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B12"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"cantidadPedida"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"cantidadDespachada"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"item"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"codigoArticulo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010000014"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"codigoUM"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNI"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"loteProveedor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A8"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"cantidadPedida"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"cantidadDespachada"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Ejemplo de respuesta del endpoint:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"La Operacion se realizó satisfactoriamente"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Este endpoint registra (confirma) un despacho.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>POST http://IP_ADDRESS:PORT/cubico/despacho/confirmacion</code></p>
+<h3 id='query-parameters-5'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parametro</th>
+<th>Tipo</th>
+<th>Tamaño</th>
+<th>Requerido</th>
+<th>Descripcion</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>numAtencion</td>
+<td>string</td>
+<td>8</td>
+<td>X</td>
+<td>Numero de packing</td>
+</tr>
+<tr>
+<td>tipoPicking</td>
+<td>integer</td>
+<td></td>
+<td>X</td>
+<td>Tipo de picking</td>
+</tr>
+<tr>
+<td>numPedido</td>
+<td>string</td>
+<td>10</td>
+<td>X</td>
+<td>Numero de pedido</td>
+</tr>
+<tr>
+<td>guiaInterna</td>
+<td>string</td>
+<td>8</td>
+<td>X</td>
+<td>Numero de guia interna</td>
+</tr>
+<tr>
+<td>fechaOrden</td>
+<td>string</td>
+<td>8</td>
+<td>X</td>
+<td>numOrden</td>
+</tr>
+<tr>
+<td>fechaEntrega</td>
+<td>string</td>
+<td>20</td>
+<td>X</td>
+<td>Fecha de entrega prometida</td>
+</tr>
+<tr>
+<td>codigoAlmacen</td>
+<td>string</td>
+<td>2</td>
+<td>X</td>
+<td>Codigo de almacen</td>
+</tr>
+<tr>
+<td>codigoSubAlmacen</td>
+<td>string</td>
+<td>2</td>
+<td>X</td>
+<td>Codigo de subalmacen</td>
+</tr>
+<tr>
+<td>codigoERPCliente</td>
+<td>string</td>
+<td>15</td>
+<td>X</td>
+<td>Codigo de cliente</td>
+</tr>
+<tr>
+<td>descripcionCliente</td>
+<td>string</td>
+<td>100</td>
+<td>X</td>
+<td>Descripcion del cliente</td>
+</tr>
+<tr>
+<td>codigoERPDireccion</td>
+<td>string</td>
+<td>2</td>
+<td>X</td>
+<td>Codigo de direccion</td>
+</tr>
+<tr>
+<td>direccionEntrega</td>
+<td>string</td>
+<td>250</td>
+<td>X</td>
+<td>Descripcion de direccion</td>
+</tr>
+<tr>
+<td>tipoVenta</td>
+<td>string</td>
+<td>50</td>
+<td></td>
+<td>Tipo de venta</td>
+</tr>
+<tr>
+<td>rucTransporte</td>
+<td>string</td>
+<td>11</td>
+<td>X</td>
+<td>RUC de la empresa de transporte</td>
+</tr>
+<tr>
+<td>placaTransporte</td>
+<td>string</td>
+<td>8</td>
+<td>X</td>
+<td>Placa del automovil</td>
+</tr>
+<tr>
+<td>conductor</td>
+<td>string</td>
+<td>8</td>
+<td>X</td>
+<td>Codigo de conductor</td>
+</tr>
+<tr>
+<td>observacion</td>
+<td>string</td>
+<td>500</td>
+<td></td>
+<td>Observacion</td>
+</tr>
+<tr>
+<td>tipoPedido</td>
+<td>string</td>
+<td>2</td>
+<td>X</td>
+<td>Tipo de pedido</td>
+</tr>
+<tr>
+<td>usuario</td>
+<td>string</td>
+<td>10</td>
+<td>X</td>
+<td>Usuario que atendio el despacho</td>
+</tr>
+<tr>
+<td>item</td>
+<td>integer</td>
+<td></td>
+<td>X</td>
+<td>Nro de item</td>
+</tr>
+<tr>
+<td>codigoArticulo</td>
+<td>string</td>
+<td>20</td>
+<td>X</td>
+<td>Codigo de articulo</td>
+</tr>
+<tr>
+<td>codigoUM</td>
+<td>string</td>
+<td>6</td>
+<td>X</td>
+<td>UM articulo</td>
+</tr>
+<tr>
+<td>loteProveedor</td>
+<td>string</td>
+<td>60</td>
+<td>X</td>
+<td>Lote del proveedor</td>
+</tr>
+<tr>
+<td>cantidadPedida</td>
+<td>integer</td>
+<td></td>
+<td>X</td>
+<td>Cantidad pedida</td>
+</tr>
+<tr>
+<td>cantidadDespachada</td>
+<td>integer</td>
+<td></td>
+<td>X</td>
+<td>Cantidad despachada</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+(*) Notas:<br>
 </aside>
 <h1 id='errors'>Errors</h1>
 <p>The API uses the following error codes:</p>
